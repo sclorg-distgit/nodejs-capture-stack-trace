@@ -1,0 +1,1 @@
+# nodejs-capture-stack-trace
