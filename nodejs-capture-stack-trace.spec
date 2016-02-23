@@ -9,7 +9,7 @@
 
 Name:           %{?scl_prefix}nodejs-%{module_name}
 Version:        1.0.0
-Release:        5%{?dist}
+Release:        10%{?dist}
 Summary:        Error.captureStackTrace ponyfill
 
 License:        MIT
@@ -19,7 +19,7 @@ Source0:        https://github.com/floatdrop/%{module_name}/archive/%{commit0}.t
 BuildArch:      noarch
 ExclusiveArch:  %{nodejs_arches} noarch
 
-BuildRequires:  nodejs010-runtime
+BuildRequires:  %{?scl_prefix}runtime
 
 %if 0%{?enable_tests}
 BuildRequires:  %{?scl_prefix}npm(mocha)
@@ -54,6 +54,12 @@ mocha
 %{nodejs_sitelib}/%{module_name}
 
 %changelog
+* Tue Feb 16 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.0.0-10
+- Use proper macro in -runtime dependency
+
+* Sun Feb 14 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.0.0-6
+- Rebuilt with updated metapackage
+
 * Fri Jan 15 2016 Tomas Hrcka <thrcka@redhat.com> - 1.0.0-5
 - Enable scl macros
 
